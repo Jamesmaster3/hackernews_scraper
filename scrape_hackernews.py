@@ -30,10 +30,11 @@ def create_custom_hn(links, subtext):
 
     return sort_stories_by_votes(hnl)
 
-
-if __name__ == '__main__':
-    # print(loop_pages(2))
-    soup = BeautifulSoup(loop_pages(2), 'html.parser')
+def run_app(pages):
+    soup = BeautifulSoup(loop_pages(pages), 'html.parser')
     links = soup.select('.titleline > a')
     subtext = soup.select('.subtext')
     pprint.pprint(create_custom_hn(links, subtext))
+
+if __name__ == '__main__':
+    run_app(2)
