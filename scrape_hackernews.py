@@ -34,7 +34,7 @@ def run_app(pages):
     soup = BeautifulSoup(loop_pages(pages), 'html.parser')
     links = soup.select('.titleline > a')
     subtext = soup.select('.subtext')
-    pprint.pprint(create_custom_hn(links, subtext))
+    return create_custom_hn(links, subtext)
 
 if __name__ == '__main__':
-    run_app(2)
+    pprint.pprint(run_app(2))
